@@ -53,6 +53,12 @@ async def get_sammendrag(
     # Vi lager prompt for Claude
     prompt = "Lag et kort sammendrag på norsk:\n\n"
 
+    # Legger til konsulentene i prompten
+    # Ser slik ut:
+    # Lag et kort sammendrag på norsk:
+    # - Anna K: 60% tilgjengelighet, ferdigheter: python, react, aws
+    # Erik B: 50% tilgjengelighet, ferdigheter: react, typescript, node.js
+    
     for k in filtrerte:
         ferdigheter = ", ".join(k["ferdigheter"])
         prompt += f"- {k['navn']}: {k['tilgjengelighet_prosent']}% tilgjengelighet, ferdigheter: {ferdigheter}\n"
